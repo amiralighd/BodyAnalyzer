@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Dashboard</h1>
+
+<h2>Welcome, {{ user.phone_number }}</h2>
+
+<h2>Your Body Analyses</h2>
+
+
+{% if analyses %}
+
+    {% for analysis in analyses %}
+
+        <div class="analysis-card">
+
+            <h3>Analysis {{ forloop.counter }}</h3>
+
+            <p>
+                Date:
+                {{ analysis.created_at|date:"F d, Y" }}
+            </p>
+
+            <p>
+                Time:
+                {{ analysis.created_at|time:"H:i" }}
+            </p>
+
+            <hr>
+
+            <p>
+                Weight: {{ analysis.weight }} kg
+            </p>
+
+            <p>
+                Height: {{ analysis.height }} cm
+            </p>
+
+            <p>
+                Age: {{ analysis.age }}
+            </p>
+
+            <p>
+                Gender: {{ analysis.get_gender_display }}
+            </p>
+
+            <hr>
+
+            <h4>Results</h4>
+
+            <p>
+                BMI: {{ analysis.bmi }}
+            </p>
+
+            <p>
+                BMI Status: {{ analysis.bmi_status }}
+            </p>
+
+            <p>
+                Blood Sugar: {{ analysis.blood_sugar }} mg/dL
+            </p>
+
+            <p>
+                Blood Sugar Status: {{ analysis.blood_sugar_status }}
+            </p>
+
+            <p>
+                Cholesterol: {{ analysis.cholesterol }} mg/dL
+            </p>
+
+            <p>
+                Cholesterol Status: {{ analysis.cholesterol_status }}
+            </p>
+
+        </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>
+        You have no body analysis yet.
+    </p>
+
+{% endif %}
+
+{% endblock %}

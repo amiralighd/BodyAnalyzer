@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="home-content">
+
+    <h1>Body Analyzer</h1>
+
+    <p>
+        Analyze your body condition and keep track of your health information.
+    </p>
+
+    {% if user.is_authenticated %}
+
+        <div class="home-buttons">
+
+            <a href="{% url 'Analyzer:analysis' %}" class="home-button">
+                BMI Calculator
+            </a>
+
+            <a href="{% url 'Accounts:dashboard' %}" class="home-button">
+                Dashboard
+            </a>
+
+        </div>
+
+    {% else %}
+
+        <div class="home-buttons">
+
+            <a href="{% url 'Accounts:register' %}" class="home-button">
+                Get Started
+            </a>
+
+            <a href="{% url 'Accounts:login' %}" class="home-button">
+                Login
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

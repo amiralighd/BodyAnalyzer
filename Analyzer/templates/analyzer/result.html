@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Body Analysis Result</h1>
+
+<p>
+    BMI: {{ result.bmi }}
+</p>
+
+<p>
+    BMI Status: {{ result.bmi_status }}
+</p>
+
+<p>
+    Blood Sugar Status: {{ result.blood_sugar_status }}
+</p>
+
+<p>
+    Cholesterol Status: {{ result.cholesterol_status }}
+</p>
+
+{% endblock %}
